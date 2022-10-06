@@ -1,7 +1,5 @@
-import CategoryItem from "../category-item/category-item";
-import "./category-holder.styles.scss";
-
-const CategoryHolder = () => {
+import Directory from "../../directory/directory";
+function Home() {
   const categories = [
     {
       id: 1,
@@ -30,12 +28,6 @@ const CategoryHolder = () => {
       imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
     },
   ];
-  return (
-    <div className="directory-container">
-      {categories.map((category) => {
-        return <CategoryItem key={category.id} category={category} />;
-      })}
-    </div>
-  );
-};
-export default CategoryHolder;
+  return <Directory categories={categories} />;
+}
+export default Home;

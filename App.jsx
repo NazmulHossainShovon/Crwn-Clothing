@@ -1,6 +1,17 @@
-import CategoryHolder from "./category-holder/category-holder.jsx";
+import "./App.css";
+import Home from "./routes/home/home.jsx";
+import Navigation from "./routes/navigation/navigation";
+import { Routes, Route } from "react-router-dom";
+import SignIn from "./routes/sign-in/sign-in";
 
 const App = () => {
-  return <CategoryHolder />;
+  return (
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
+  );
 };
 export default App;
