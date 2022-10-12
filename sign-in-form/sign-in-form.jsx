@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Button from "../button/button";
 import FormInput from "../form-input/form-input";
 import {
@@ -15,14 +15,16 @@ const SignInForm = () => {
     password: "",
   });
   const { email, password } = formFields;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
+      const { user } = await signInAuthUserWithEmailAndPassword(
         email,
         password
       );
+
       alert("Successfully signed in!");
     } catch (error) {
       alert(error.message);
@@ -41,8 +43,7 @@ const SignInForm = () => {
     });
   };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
   return (
     <div className="sign-in-container">

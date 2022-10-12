@@ -26,6 +26,7 @@ const SignUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
     } catch (error) {
       alert(error.message);
