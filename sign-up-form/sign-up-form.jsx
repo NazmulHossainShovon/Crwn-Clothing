@@ -14,7 +14,9 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
+
   const { displayName, email, password, confirmPassword } = formFields;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -46,6 +48,7 @@ const SignUpForm = () => {
       [name]: value,
     });
   };
+
   return (
     <div className="sign-up-container">
       <h2>Don't Have an Account?</h2>
